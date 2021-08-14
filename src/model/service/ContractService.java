@@ -13,8 +13,7 @@ public class ContractService {
 	
 	private Payment payment;
 	private Contract contract;
-	
-	
+	private TaxService taxService = new PaypalTaxService();
 	
 	public ContractService() {
 	}
@@ -44,24 +43,24 @@ public class ContractService {
 	List<Double> intallments = new ArrayList<>();
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
 	
 	public double operation() {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(contract.getDate());
-		
-		
 			
 		System.out.println("Installments: ");
 		
-		for(int i= 1; i <= payment.getInstallment(); i++ ) {
+		int p = payment.getInstallment();
+		double value = payment.getValue()/p;
+		
+		for(int i= 1; i <= p; i++ ) {
 			
 			cal.add(Calendar.MONTH, 1);
-			System.out.println(sdf.format(cal.getTime()));
+			System.out.println(sdf.format(cal.getTime()) + " - " + taxService.operation(i, value));
 			
 		}
 		
-		
+				
 		
 		return 0;
 	}

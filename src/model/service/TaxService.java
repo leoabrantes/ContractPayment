@@ -1,9 +1,7 @@
 package model.service;
 
-import model.entities.Payment;
-
 public interface TaxService {
 	
-	Double operation(Payment payment);
+	Double operation(int installment, double value);
 
 }

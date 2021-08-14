@@ -29,6 +29,7 @@ public class Program {
 		System.out.print("Contract value: ");
 		double value = sc.nextDouble();
 		
+		
 		System.out.print("Enter Number of Installments: ");
 		int installments = sc.nextInt();
 		
@@ -36,7 +37,6 @@ public class Program {
 		Contract contract = new Contract(number, date);
 		
 		ContractService cs = new ContractService(payment, contract);
-		
 		
 		cs.operation();
 		
