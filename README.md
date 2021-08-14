@@ -3,7 +3,7 @@ This program receives information about a contract and return the value of each 
 
 ### In: 
 
-Number, date, contract value and number of installments 
+Number, Date, Contract value and Number of installments 
 
 ### Out: 
 
