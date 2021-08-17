@@ -12,8 +12,6 @@ public class Payment {
 		this.installment = installment;
 		this.value = value;
 	}
-	
-	
 
 	public int getInstallment() {
 		return installment;

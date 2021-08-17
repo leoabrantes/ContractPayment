@@ -1,6 +1,6 @@
 package model.service;
 
-public class PaypalTaxService implements TaxService{
+public class GooglePayService implements TaxService{
 
 	@Override
 	public Double operation(int installment, double value) {

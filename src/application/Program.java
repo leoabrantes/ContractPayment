@@ -9,6 +9,7 @@ import java.util.Scanner;
 import model.entities.Contract;
 import model.entities.Payment;
 import model.service.ContractService;
+import model.service.GooglePayService;
 
 public class Program {
 
@@ -36,7 +37,7 @@ public class Program {
 		Payment payment = new Payment(installments, value);
 		Contract contract = new Contract(number, date);
 		
-		ContractService cs = new ContractService(payment, contract);
+		ContractService cs = new ContractService(payment, contract, new GooglePayService());
 		
 		cs.operation();
 		

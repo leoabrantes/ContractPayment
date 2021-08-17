@@ -13,14 +13,15 @@ public class ContractService {
 	
 	private Payment payment;
 	private Contract contract;
-	private TaxService taxService = new PaypalTaxService();
+	private TaxService taxService;
 	
 	public ContractService() {
 	}
 	
-	public ContractService(Payment payment, Contract contract) {
+	public ContractService(Payment payment, Contract contract, TaxService taxService) {
 		this.payment = payment;
 		this.contract = contract;
+		this.taxService = taxService;
 	}
 
 	public Payment getPayment() {
@@ -39,12 +40,10 @@ public class ContractService {
 		this.contract = contract;
 	}
 	
-	List<Date> list = new ArrayList<>();
-	List<Double> intallments = new ArrayList<>();
-	
+		
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
-	public double operation() {
+	public void operation() {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(contract.getDate());
 			
@@ -56,13 +55,10 @@ public class ContractService {
 		for(int i= 1; i <= p; i++ ) {
 			
 			cal.add(Calendar.MONTH, 1);
-			System.out.println(sdf.format(cal.getTime()) + " - " + taxService.operation(i, value));
+			System.out.printf("%s - %.2f %n", sdf.format(cal.getTime()), taxService.operation(i, value));
 			
 		}
-		
 				
-		
-		return 0;
 	}
 	
 
