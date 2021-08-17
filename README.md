@@ -1,5 +1,8 @@
 ## ContractPayment
-This program receives information about a contract and return the value of each installment (considered injuries) 
+This program receives information about a contract and return the value of each installment (considered injuries)
+
+Interest: 1% for month
+GooglePay interes: 2% in the total result
 
 ### In: 
 
@@ -20,3 +23,9 @@ Installments 02: Date02, Value02
        ..............
     
 Installments (N): Date(N), Value(N)
+
+
+
+UML Diagram
+
+![question]( https://github.com/leoabrantes/ContractPayment/blob/main/UML.jpg)
