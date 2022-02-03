@@ -6,6 +6,7 @@ public class Contract {
 	
 	private int number;
 	private Date date;
+	private Payment payment;
 	
 	public Contract() {
 	}
@@ -31,6 +32,16 @@ public class Contract {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
+	
+	
 	
 
 }

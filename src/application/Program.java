@@ -20,26 +20,25 @@ public class Program {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
 		System.out.println("Enter contract data");
-		System.out.print("Number: ");
-		int number = sc.nextInt();
 		
+		System.out.print("Contract Number: ");
+		int number = sc.nextInt();
 		System.out.print("Date (dd/MM/yyyy): ");
 		Date date = sdf.parse(sc.next());
 			
 
 		System.out.print("Contract value: ");
 		double value = sc.nextDouble();
-		
-		
 		System.out.print("Enter Number of Installments: ");
 		int installments = sc.nextInt();
 		
-		Payment payment = new Payment(installments, value);
+		
 		Contract contract = new Contract(number, date);
+		contract.setPayment(new Payment(installments, value));
 		
-		ContractService cs = new ContractService(payment, contract, new GooglePayService());
+		ContractService cs = new ContractService(contract, new GooglePayService());
 		
-		cs.operation();
+		cs.summary();
 		
 		sc.close();
 	}
