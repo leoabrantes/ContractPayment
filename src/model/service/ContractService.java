@@ -8,17 +8,23 @@ import java.util.Date;
 import java.util.List;
 import model.entities.Contract;
 import model.entities.Payment;
+import model.service.loan.LoanService;
 
 
 public class ContractService {
 	
 	private Contract contract;
-	private TaxService taxService;
+	private LoanService taxService;
+	
+	int n = contract.getPayment().getInstallment(); // number of installments
+	double value = contract.getPayment().getValue();
+	double in = contract.getPayment().getValue();  // contract interest
+	double gross = 0;
 	
 	public ContractService() {
 	}
 	
-	public ContractService(Contract contract, TaxService taxService) {
+	public ContractService(Contract contract, LoanService taxService) {
 		this.contract = contract;
 		this.taxService = taxService;
 	}
@@ -40,6 +46,7 @@ public class ContractService {
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
+	
 	public void summary() {
 		
 		clearScreen();
@@ -59,14 +66,10 @@ public class ContractService {
 			
 		System.out.println("Installments: ");
 		
-		int p = contract.getPayment().getInstallment();
-		double value = contract.getPayment().getValue();
-		double gross = 0;
 		
 		for(int i= 1; i <= p; i++ ) {
 			cal.add(Calendar.MONTH, 1);
-			System.out.printf("%s - %.2f %n", sdf.format(cal.getTime()), taxService.operation(i, value));
-			gross += taxService.operation(i, value);
+			System.out.printf("%s - %.2f %n", sdf.format(cal.getTime()), installmentCalc() );
 		}
 		
 		System.out.println();
@@ -77,6 +80,13 @@ public class ContractService {
 				
 	}
 	
+	public double installmentCalc() {
+				
+		return value + taxService.operation(value) + value*(in/100)^n;
+		
+	}
+	
+
 	
 
 }

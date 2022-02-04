@@ -4,13 +4,15 @@ public class Payment {
 	
 	private int installment;
 	private Double value;
+	private Double interest;
 	
 	public Payment() {
 	}
 
-	public Payment(int installment, Double value) {
+	public Payment(int installment, Double value, double interest) {
 		this.installment = installment;
 		this.value = value;
+		this.interest = interest;
 	}
 
 	public int getInstallment() {
@@ -28,6 +30,15 @@ public class Payment {
 	public void setValue(Double value) {
 		this.value = value;
 	}
+
+	public Double getInterest() {
+		return interest;
+	}
+
+	public void setInterest(Double interest) {
+		this.interest = interest;
+	}
+	
 	
 	
 	
