@@ -32,16 +32,16 @@ public class Program {
 			}
 
 		
-		System.out.print("Enter with the contract interest (a year) - (maximum: 15%): ");
+		System.out.print("Enter with the contract interest (a year). Max: 15%: ");
 		int interest = sc.nextInt();
 		
-			while (months < 1 || months > 15) {
+			while (interest < 1 || interest > 15) {
 				System.out.print("	Type a valid number (from 1 to 15): ");
-				months = sc.nextInt();
+				interest = sc.nextInt();
 			}
 
 		System.out.println();
-		System.out.println("Choose a model of loan contract: ");
+		System.out.println("Choose a model to loan contract: ");
 		System.out.println("	1 - Table PRICE ");
 		System.out.println("	2 - Table SAC ");
 		
@@ -53,11 +53,9 @@ public class Program {
 				model = sc.nextInt();
 			}
 		
-		
+		System.out.println();
 		System.out.print("Contract signature date (dd/MM/yyyy): ");
 		Date date = sdf.parse(sc.next());
-
-
 
 		Contract contract = new Contract(date, model);
 		
@@ -67,6 +65,10 @@ public class Program {
 		System.out.println();
 		
 		contract.summaryContract();
+		
+		System.out.println("Would you like to print all the payment table (Y/N)? ");
+		
+		contract.paymentContract();
 
 		sc.close();
 	}

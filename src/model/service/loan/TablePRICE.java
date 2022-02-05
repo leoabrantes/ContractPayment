@@ -2,18 +2,32 @@ package model.service.loan;
 
 public class TablePRICE implements LoanService{
 	
+	private double value;
+	private double interest;
+	private int months;
 	
 	
+		
+	public TablePRICE(double value, double interest, int months) {
+		super();
+		this.value = value;
+		this.interest = interest;
+		this.months = months;
+	}
 	
+
 	@Override
-	public Double operation(double value, double interest, int months) {
-		// TODO Auto-generated method stub
+	public void operation() {
+		
+			
+		
+		
 		return null;
 	}
 
 	@Override
 	public String toString() {
-		return "TablePRICE";
+		return "Table PRICE";
 	}
 	
 	

@@ -51,10 +51,10 @@ public class Contract {
 	
 	public LoanService modelContract() {
 		if(model == 1) {
-			return new TablePRICE();
+			return new TablePRICE(payment.getValue(), payment.getInterest(), payment.getMonths());
 		}
 		else {
-			return new TableSAC();
+			return new TableSAC(payment.getValue(), payment.getInterest(), payment.getMonths());
 		}
 	}
 	
@@ -65,6 +65,12 @@ public class Contract {
 	public void summaryContract() {
 		
 		cs.summary();
+		
+	}
+
+	public void paymentContract() {
+		
+		cs.payment();
 		
 	}
 	

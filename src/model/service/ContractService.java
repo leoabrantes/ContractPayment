@@ -17,6 +17,8 @@ public class ContractService {
 	private LoanService loanService;
 	
 	Calendar cal = Calendar.getInstance();
+	
+	SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
 
 	
 		
@@ -57,12 +59,19 @@ public class ContractService {
 		
 		System.out.println();
 		
-		System.out.println("Contract value: " + contract.getPayment().getValue());
-		System.out.println("Months: " + contract.getPayment().getMonths());
-		System.out.println("Interest: " + contract.getPayment().getInterest() + "% a year");
-		System.out.println("Contract signature date: " + contract.getDate());
-		System.out.println("Contract model: " + loanService);
+		System.out.printf("%s%.2f%n", "	Contract value: $", contract.getPayment().getValue());
+		System.out.println("	Months: " + contract.getPayment().getMonths());
+		System.out.println("	Interest: " + contract.getPayment().getInterest() + "% a year");
+		System.out.println("	Contract signature date: " + sdf1.format(contract.getDate()));
+		System.out.println("	Contract model: " + loanService);
 		
+		System.out.println();
+		
+	}
+
+	public void payment() {
+		
+		loanService.operation();
 		
 //		for(int i= 1; i <= p; i++ ) {
 //			cal.add(Calendar.MONTH, 1);
@@ -73,8 +82,7 @@ public class ContractService {
 //		
 //		System.out.printf("%s%.2f%n", "Gross value: ", gross);
 //		System.out.printf("%s%.2f%n", "Interest: ", gross-value;
-//		
-				
+		
 	}
 	
 
