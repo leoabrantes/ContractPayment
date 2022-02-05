@@ -2,25 +2,25 @@ package model.entities;
 
 public class Payment {
 	
-	private int installment;
+	private int months;
 	private Double value;
 	private Double interest;
 	
 	public Payment() {
 	}
 
-	public Payment(int installment, Double value, double interest) {
-		this.installment = installment;
+	public Payment(int months, Double value, double interest) {
+		this.months = months;
 		this.value = value;
 		this.interest = interest;
 	}
 
-	public int getInstallment() {
-		return installment;
+	public int getMonths() {
+		return months;
 	}
 
-	public void setInstallment(int installment) {
-		this.installment = installment;
+	public void setMonths(int installment) {
+		this.months = installment;
 	}
 
 	public Double getValue() {
@@ -38,9 +38,6 @@ public class Payment {
 	public void setInterest(Double interest) {
 		this.interest = interest;
 	}
-	
-	
-	
 	
 
 }

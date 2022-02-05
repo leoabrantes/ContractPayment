@@ -14,19 +14,18 @@ import model.service.loan.LoanService;
 public class ContractService {
 	
 	private Contract contract;
-	private LoanService taxService;
+	private LoanService loanService;
 	
-	int n = contract.getPayment().getInstallment(); // number of installments
-	double value = contract.getPayment().getValue();
-	double in = contract.getPayment().getValue();  // contract interest
-	double gross = 0;
+	Calendar cal = Calendar.getInstance();
+
 	
+		
 	public ContractService() {
 	}
 	
-	public ContractService(Contract contract, LoanService taxService) {
+	public ContractService(Contract contract, LoanService loanService) {
 		this.contract = contract;
-		this.taxService = taxService;
+		this.loanService = loanService;
 	}
 
 
@@ -47,46 +46,37 @@ public class ContractService {
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
 	
+	
+	
 	public void summary() {
+		cal.setTime(contract.getDate());
 		
 		clearScreen();
 		
-		
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(contract.getDate());
-		
-		System.out.println();
-		System.out.println();
-		
 		System.out.println("Summary: ");
 		
-		System.out.printf("%s%d","Contract: ", contract.getNumber());
-		
-		System.out.println();
-			
-		System.out.println("Installments: ");
-		
-		
-		for(int i= 1; i <= p; i++ ) {
-			cal.add(Calendar.MONTH, 1);
-			System.out.printf("%s - %.2f %n", sdf.format(cal.getTime()), installmentCalc() );
-		}
-		
 		System.out.println();
 		
-		System.out.printf("%s%.2f%n", "Gross value: ", gross);
-		System.out.printf("%s%.2f%n", "Interest: ", (gross-value));
+		System.out.println("Contract value: " + contract.getPayment().getValue());
+		System.out.println("Months: " + contract.getPayment().getMonths());
+		System.out.println("Interest: " + contract.getPayment().getInterest() + "% a year");
+		System.out.println("Contract signature date: " + contract.getDate());
+		System.out.println("Contract model: " + loanService);
 		
-				
-	}
-	
-	public double installmentCalc() {
-				
-		return value + taxService.operation(value) + value*(in/100)^n;
 		
+//		for(int i= 1; i <= p; i++ ) {
+//			cal.add(Calendar.MONTH, 1);
+//			System.out.printf("%s - %.2f %n", sdf.format(cal.getTime()), installmentCalc() );
+//		}
+//		
+//		System.out.println();
+//		
+//		System.out.printf("%s%.2f%n", "Gross value: ", gross);
+//		System.out.printf("%s%.2f%n", "Interest: ", gross-value;
+//		
+				
 	}
 	
 
-	
 
 }
