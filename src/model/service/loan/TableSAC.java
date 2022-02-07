@@ -56,12 +56,10 @@ public class TableSAC implements LoanService{
 	public void operation() {
 		
 		double a = value/months;
-		
 		double debt = value;
 		
 		System.out.println();
 		System.out.println();
-
 		
 		for(int i=1; i<=months; i++) {
 			
@@ -69,16 +67,38 @@ public class TableSAC implements LoanService{
 			String dueDate = sdf.format(cal.getTime());
 			
 			double interestValue = debt*(interest/100)/12;
-			
+			debt -= a;
 			System.out.println(new Installment(dueDate, (interestValue+a), interestValue, a, debt, i));
 			System.out.println();
 			
-			debt -= a;
 			
 		}
 		
+	}
+	
+	
+	@Override
+	public double totalPaid() {
+		
+		double a = value/months;
+		double total = 0;
+		double debt = value;
+		
+		for(int i=1; i<=months; i++) {
+			
+			double interestValue = debt*(interest/100)/12;
+			debt -= a;
+			total += interestValue+a;
+			
+		}
+		return total;
+		
 		
 	}
+
+	
+	
+	
 
 	@Override
 	public String toString() {

@@ -42,7 +42,7 @@ public class Program {
 				interest = sc.nextInt();
 			}
 
-		System.out.print("Choose a model contract: (1) Table PRICE or (2) Table SAC). Type a number (1/2): ");
+		System.out.print("Choose a model contract: (1) Table PRICE or (2) Table SAC. Type a number (1/2): ");
 		
 		int model = sc.nextInt();
 			while (model != 1 && model != 2) {
@@ -64,7 +64,7 @@ public class Program {
 		
 		contract.summaryContract();
 		
-		System.out.print("Would you like to get information about all the installments? (Y/N): ");
+		System.out.print("Would you like to get information about the all installments? (Y/N): ");
 		
 		char type = sc.next().charAt(0);
 		

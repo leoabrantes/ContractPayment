@@ -86,6 +86,10 @@ public class Contract {
 		System.out.println("	Interest: " + getPayment().getInterest() + "% a year");
 		System.out.println("	Contract signature date: " + sdf1.format(getDate()));
 		System.out.println("	Contract model: " + modelContract());
+		System.out.println();
+		System.out.printf("%s%.2f%n", "	TOTAL PAID: $", modelContract().totalPaid());
+		System.out.printf("%s%.2f%n", "	Interest: $", (modelContract().totalPaid() - getPayment().getValue()));
+		System.out.println();
 		
 		System.out.println();
 		
