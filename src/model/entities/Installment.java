@@ -68,14 +68,12 @@ public class Installment {
 	@Override
 	public String toString() {
 		
-		System.out.println();
-		
-		return "Installment number (" + intallment 
-				+"): Value = $" + value
-				+ "// Due date = " + expiration
-				+ "// Interest Value = $" + interestValue
-				+ "// Amortization Value = $" + amortizationValue
-				+ "// Debt Balance = $" + debtBalance;
+		return "Installment (" + intallment
+				+"): VALUE = $" + String.format("%.2f", value)
+				+ " // Due date = " + expiration
+				+ " // Interest = $" + String.format("%.2f", interestValue)
+				+ " // Amortization = $" + String.format("%.2f", amortizationValue)
+				+ " // Debt Balance = $" + String.format("%.2f", debtBalance);
 	}
 
 }

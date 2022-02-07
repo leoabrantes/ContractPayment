@@ -59,6 +59,10 @@ public class TableSAC implements LoanService{
 		
 		double debt = value;
 		
+		System.out.println();
+		System.out.println();
+
+		
 		for(int i=1; i<=months; i++) {
 			
 			cal.add(Calendar.MONTH, 1);
@@ -66,13 +70,13 @@ public class TableSAC implements LoanService{
 			
 			double interestValue = debt*(interest/100)/12;
 			
-			list.add(new Installment(dueDate, (interestValue+a), interestValue, a, debt, i));
+			System.out.println(new Installment(dueDate, (interestValue+a), interestValue, a, debt, i));
+			System.out.println();
 			
-			debt =- a;
+			debt -= a;
 			
 		}
 		
-		System.out.println(list);
 		
 	}
 

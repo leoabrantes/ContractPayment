@@ -77,7 +77,7 @@ public class Contract {
 		
 		clearScreen();
 		
-		System.out.println("Summary: ");
+		System.out.println("SUMMARY: ");
 		
 		System.out.println();
 		

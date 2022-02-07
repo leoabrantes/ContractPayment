@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 import model.entities.Contract;
 import model.entities.Payment;
+import model.service.loan.LoanService;
+import model.service.loan.TableSAC;
 
 public class Program {
 
@@ -15,7 +17,7 @@ public class Program {
 		
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 		System.out.println("LOAN AGREEMENT");
@@ -40,12 +42,7 @@ public class Program {
 				interest = sc.nextInt();
 			}
 
-		System.out.println();
-		System.out.println("Choose a model to loan contract: ");
-		System.out.println("	1 - Table PRICE ");
-		System.out.println("	2 - Table SAC ");
-		
-		System.out.print("Type a number (1 or 2): ");
+		System.out.print("Choose a model contract: (1) Table PRICE or (2) Table SAC). Type a number (1/2): ");
 		
 		int model = sc.nextInt();
 			while (model != 1 && model != 2) {
@@ -63,22 +60,22 @@ public class Program {
 		
 		System.out.println();
 		System.out.println();
+
 		
 		contract.summaryContract();
 		
-		sc.next();
-		
-		
 		System.out.print("Would you like to get information about all the installments? (Y/N): ");
 		
-		String type = sc.nextLine().toUpperCase();
+		char type = sc.next().charAt(0);
 		
-		while (!type.equals("Y") && !type.equals("N")) {
-			System.out.print("Invalid value! Would you like to get information about all the installments? (Y/N):  ");
-			type = sc.nextLine().toUpperCase();
+		
+		while ((type != 'Y') && (type != 'N')) {
+			System.out.println();
+			System.out.print("Invalid value! Would you like to get information about the all installments? (Y/N):  ");
+			type = sc.next().charAt(0);
 		}
 		
-		if(type == "Y") {
+		if(type == 'Y') {
 			contract.paymentContract();
 		}
 
