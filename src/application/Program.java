@@ -66,9 +66,21 @@ public class Program {
 		
 		contract.summaryContract();
 		
-		System.out.println("Would you like to print all the payment table (Y/N)? ");
+		sc.next();
 		
-		contract.paymentContract();
+		
+		System.out.print("Would you like to get information about all the installments? (Y/N): ");
+		
+		String type = sc.nextLine().toUpperCase();
+		
+		while (!type.equals("Y") && !type.equals("N")) {
+			System.out.print("Invalid value! Would you like to get information about all the installments? (Y/N):  ");
+			type = sc.nextLine().toUpperCase();
+		}
+		
+		if(type == "Y") {
+			contract.paymentContract();
+		}
 
 		sc.close();
 	}

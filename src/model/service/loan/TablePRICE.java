@@ -22,7 +22,7 @@ public class TablePRICE implements LoanService{
 			
 		
 		
-		return null;
+		return;
 	}
 
 	@Override

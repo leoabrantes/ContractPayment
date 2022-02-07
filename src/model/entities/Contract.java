@@ -1,17 +1,22 @@
 package model.entities;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
-import model.service.ContractService;
 import model.service.loan.LoanService;
 import model.service.loan.TablePRICE;
 import model.service.loan.TableSAC;
 
 public class Contract {
 	
+	Calendar cal = Calendar.getInstance();
+	SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+	
 	private int model;
 	private Date date;
 	private Payment payment;
+	
 	
 	public Contract() {
 	}
@@ -59,21 +64,38 @@ public class Contract {
 	}
 	
 	
-	ContractService cs = new ContractService(this, modelContract());
+	public static void clearScreen() {
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
+	}
+	
 	
 	
 	public void summaryContract() {
 		
-		cs.summary();
+		cal.setTime(getDate());
+		
+		clearScreen();
+		
+		System.out.println("Summary: ");
+		
+		System.out.println();
+		
+		System.out.printf("%s%.2f%n", "	Contract value: $", getPayment().getValue());
+		System.out.println("	Months: " + getPayment().getMonths());
+		System.out.println("	Interest: " + getPayment().getInterest() + "% a year");
+		System.out.println("	Contract signature date: " + sdf1.format(getDate()));
+		System.out.println("	Contract model: " + modelContract());
+		
+		System.out.println();
+		
 		
 	}
 
 	public void paymentContract() {
 		
-		cs.payment();
+		modelContract().operation();
 		
 	}
-	
-	
 
 }
