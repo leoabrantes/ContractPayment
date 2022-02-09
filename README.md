@@ -1,18 +1,21 @@
-## ContractPayment
-This program receives information about a contract and return the value of each installment (considered injuries)
+## Loan Contract Payment
+This program receives information about a contract (intallments, due date, interest) and It return the information of each installment (considered interest)
 
-Interest: 1% for month <br />
-GooglePay Interest: 2% in the total result
+System Payment:
+
+(1) Table PRICE
+
+(2) Table SAC
 
 ### In: 
 
-Number, Date, Contract value and Number of installments 
+Loan value, due date, number of installments and model contract
 
 ### Out: 
 
-Installments 01: Date01, Value01
+Installments 01: DueDate01, Value01
 
-Installments 02: Date02, Value02
+Installments 02: DueDate02, Value02
 
        ..............
        
