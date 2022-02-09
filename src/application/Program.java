@@ -77,7 +77,7 @@ public class Program {
 		}
 		
 		if(type == 'Y') {
-			contract.paymentContract();
+			contract.modelContract().operation();
 		}
 
 		sc.close();

@@ -3,8 +3,8 @@ package model.entities;
 public class Payment {
 	
 	private int months;
-	private Double value;
-	private Double interest;
+	private double value;
+	private double interest;
 	
 	public Payment() {
 	}

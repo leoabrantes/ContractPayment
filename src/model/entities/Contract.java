@@ -96,10 +96,5 @@ public class Contract {
 		
 	}
 
-	public void paymentContract() {
-		
-		modelContract().operation();
-		
-	}
 
 }

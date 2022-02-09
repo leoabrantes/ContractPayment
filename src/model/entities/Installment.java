@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Installment {
 	
-	private String expiration;
+	private String dueDate;
 	private double totalValue;
 	private double interestValue;
 	private double amortizationValue;
@@ -14,7 +14,7 @@ public class Installment {
 	
 	public Installment(String dueDate, double value, double interestValue, double amortizationValue,
 			double debtBalance, int intallment) {
-		this.expiration = dueDate;
+		this.dueDate = dueDate;
 		this.totalValue = value;
 		this.interestValue = interestValue;
 		this.amortizationValue = amortizationValue;
@@ -25,11 +25,11 @@ public class Installment {
 	
 	
 	
-	public String getExpiration() {
-		return expiration;
+	public String getDueDate() {
+		return dueDate;
 	}
-	public void setExpiration(String expiration) {
-		this.expiration = expiration;
+	public void setDueDate(String expiration) {
+		this.dueDate = expiration;
 	}
 	public double getValue() {
 		return totalValue;
@@ -70,7 +70,7 @@ public class Installment {
 		
 		return "Installment (" + intallment
 				+"): VALUE = $" + String.format("%.2f", totalValue)
-				+ " // Due date = " + expiration
+				+ " // Due date = " + dueDate
 				+ " // Interest = $" + String.format("%.2f", interestValue)
 				+ " // Amortization = $" + String.format("%.2f", amortizationValue)
 				+ " // Debt Balance = $" + String.format("%.2f", debtBalance);
