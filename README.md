@@ -29,4 +29,4 @@ Installments (N): Date(N), Value(N)
 <br /><br /><br /><br />
 UML Diagram
 
-![question]( https://github.com/leoabrantes/ContractPayment/blob/main/UML.jpg)
+![question]( https://github.com/leoabrantes/ContractPayment/blob/main/UML.jpeg)
