@@ -35,7 +35,7 @@ public class Program {
 
 		
 		System.out.print("Enter with the contract interest (a year). Max: 15%: ");
-		int interest = sc.nextInt();
+		double interest = sc.nextDouble();
 		
 			while (interest < 1 || interest > 15) {
 				System.out.print("	Type a valid number (from 1 to 15): ");
@@ -55,6 +55,7 @@ public class Program {
 		Date date = sdf.parse(sc.next());
 
 		Contract contract = new Contract(date, model);
+		
 		
 		contract.setPayment(new Payment(months, value, interest));
 		

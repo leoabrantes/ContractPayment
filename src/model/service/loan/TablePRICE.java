@@ -55,8 +55,8 @@ public class TablePRICE implements LoanService{
 	@Override
 	public void operation() {
 		
-		double i = interest/(100*12);
-		double installmentValue =  value*i/(1-1/(Math.pow((1+i),months)));
+		double interestValue = interest/(100*12);
+		double totalValue =  value*interestValue/(1-1/(Math.pow((1+interestValue),months)));
 		double debt = value;
 		
 		System.out.println();
@@ -67,11 +67,10 @@ public class TablePRICE implements LoanService{
 			cal.add(Calendar.MONTH, 1);
 			String dueDate = sdf.format(cal.getTime());
 			
-			double interestValue = debt*(interest/100)/12;
-			System.out.println(new Installment(dueDate, installmentValue, interestValue, a, debt, i));
+			interestValue = debt*(interest/(100*12));
+			debt = debt + interestValue - totalValue;
+			System.out.println(new Installment(dueDate, totalValue, interestValue, (totalValue-interestValue), debt, i));
 			System.out.println();
-			
-			debt -= debt;
 			
 		}
 		
@@ -80,25 +79,14 @@ public class TablePRICE implements LoanService{
 	
 	@Override
 	public double totalPaid() {
-		
-		double a = value/months;
-		double total = 0;
-		double debt = value;
-		
-		for(int i=1; i<=months; i++) {
-			
-			double interestValue = debt*(interest/100)/12;
-			debt -= a;
-			total += interestValue+a;
-			
-		}
-		return total;
-		
+
+		double interestValue = interest/(100*12);
+		double totalValue =  value*interestValue/(1-1/(Math.pow((1+interestValue),months)));
+
+		return totalValue*months;
 		
 	}
 
-	
-	
 	
 
 	@Override
